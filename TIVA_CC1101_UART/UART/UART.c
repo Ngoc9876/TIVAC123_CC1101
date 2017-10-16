@@ -37,6 +37,11 @@ void UARTIntHandler(void)
             u16_avail_byte++;
             C1101_WriteIdx %= MAX_BUF_DATA_RECV;
         }
+        else
+        {
+        //Flush buffer
+            UARTCharGetNonBlocking(CC1101_UART_BASE);
+        }
     }
 }
 
